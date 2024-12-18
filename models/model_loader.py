@@ -1,7 +1,13 @@
 import os
 import torch
 from omegaconf import OmegaConf
-from ..FasterLivePortrait.src.pipelines.faster_live_portrait_pipeline import FasterLivePortraitPipeline
+import sys
+
+# Add FasterLivePortrait to Python path
+faster_live_portrait_path = os.path.join(os.path.dirname(__file__), "..", "FasterLivePortrait")
+sys.path.append(faster_live_portrait_path)
+
+from src.pipelines.faster_live_portrait_pipeline import FasterLivePortraitPipeline
 
 class ModelLoader:
     _instance = None
